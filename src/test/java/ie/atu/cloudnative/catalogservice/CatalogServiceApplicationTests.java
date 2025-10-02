@@ -51,7 +51,7 @@ class CatalogServiceApplicationTests {
     }
 
     @Test
-    void whenPostRequestThenBookCreated() {
+    void whenPostRequestThenBookCreated()  {
         var expectedBook = new Book("1231231231", "Title", "Author", 9.90);
 
         // Test creating a new book via POST request
