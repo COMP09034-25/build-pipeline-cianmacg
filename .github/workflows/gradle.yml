@@ -31,3 +31,14 @@ jobs:
       
     - name: Run tests
       run: ./gradlew test
+
+    - name: Anchore Container Scan
+      uses: anchore/scan-action@v3.6.4
+      id: scan
+      with:
+        # The path to scan. This option is mutually exclusive with "image" and "sbom".
+        path: "${{ github.workspace }}"
+        # Set to false to avoid failing based on severity-cutoff. Default is to fail when severity-cutoff is reached (or surpassed)
+        fail-build: true
+        severity-cutoff: high
+        acs-report-enable: true
